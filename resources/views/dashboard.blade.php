@@ -17,14 +17,16 @@
         {{-- 投稿 --}}
         @forelse ($posts as $post)
             <div class="py-1 max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="  bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900">
-                        <h2 class="text-gray-900 text-xl mb-2">{{ $post->title }}</h2>
-                        <p class="text-gray-600 text-sm mb-2">投稿ユーザー: {{ $post->user_id }}</p>
-                        <p class="text-gray-600 text-sm mb-2">投稿日時: {{ $post->created_at }}</p>
-                        <p class="text-gray-900">{{ $post->content }} </p>
+                <a href="{{ route('post.show_user', ['post' => $post]) }}">
+                    <div class="  bg-white  hover:bg-gray-200 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="p-6 text-gray-900">
+                            <h2 class="text-gray-900 text-xl mb-2">{{ $post->title }}</h2>
+                            <p class="text-gray-600 text-sm mb-2">投稿ユーザー: {{ $post->user_id }}</p>
+                            <p class="text-gray-600 text-sm mb-2">投稿日時: {{ $post->created_at }}</p>
+                            <p class="text-gray-900">{{ $post->content }} </p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         @empty
             <p>Not post</p>

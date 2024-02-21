@@ -14,6 +14,13 @@ class PostController extends Controller
             ->with(['posts' => $posts]);
     }
 
+    public function show_user(Post $post) {
+        $id = $post->user_id;
+        $user_post = Post::where('user_id', $id)->get();
+
+        return view('post.show_user', ['user_post' => $user_post]);
+    }
+
     public function create() {
         return view('post.create');
     }

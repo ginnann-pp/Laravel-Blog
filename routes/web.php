@@ -36,9 +36,12 @@ Route::middleware('auth')->group(function () {
         ->name('profile.destroy');
     // posts関係ルート
     Route::get('/post/create', [PostController::class, 'create'])
-        ->name('post.create');
+    ->name('post.create');
     Route::post('/post/store', [PostController::class, 'store'])
-        ->name('post.store');
+    ->name('post.store');
+
+    Route::get('/post/show_user/{post}', [PostController::class, 'show_user'])
+        ->name('post.show_user');
 
 });
 
