@@ -37,4 +37,25 @@ class PostController extends Controller
         return redirect()
             ->route('dashboard');
     }
+
+    public function edit() {
+        $user_id = auth()->id();
+        $user_post = Post::where('user_id', $user_id)->get();
+
+        return view('post.edit', ['user_post' => $user_post]);
+    }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+
+        return redirect()
+            ->route('post.edit');
+    }
+
+    public function show_update(Post $post) {
+        $update_post = Post::where('user_id', $post->id)->get();
+
+        return view('post.edit', ['user_post' => $update_post]);
+    }
 }

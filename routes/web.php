@@ -43,6 +43,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/post/show_user/{post}', [PostController::class, 'show_user'])
         ->name('post.show_user');
 
+        // 編集ルート
+    Route::get('/post/edit', [PostController::class, 'edit'])
+        ->name('post.edit');
+    Route::get('/post/{post}/update', [PostController::class, 'show_update'])
+        ->name('post.update')
+        ->where('post', '[0-9]+');;
+    Route::delete('/post/{post}/destroy', [PostController::class, 'destroy'])
+        ->name('post.destroy')
+        ->where('post', '[0-9]+');
+
 });
 
 require __DIR__.'/auth.php';

@@ -4,11 +4,18 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Dashboard') }}
             </h2>
-            <button class="bg-green-600 hover:bg-green-500 text-white text-sl rounded px-4 py-2">
-                <a href="{{route('post.create')}}">
-                    新規投稿
-                </a>
-            </button>
+            <div>
+                <button class=" bg-blue-600 hover:bg-blue-500 text-white text-sl rounded px-4 py-2">
+                    <a href="{{route('post.edit')}}">
+                        投稿編集
+                    </a>
+                </button>
+                <button class="bg-green-600 hover:bg-green-500 text-white text-sl rounded px-4 py-2">
+                    <a href="{{route('post.create')}}">
+                        新規投稿
+                    </a>
+                </button>
+            </div>
         </div>
     </x-slot>
 
