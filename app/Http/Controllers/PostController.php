@@ -54,8 +54,8 @@ class PostController extends Controller
     }
 
     public function show_update(Post $post) {
-        $update_post = Post::where('user_id', $post->id)->get();
+        $user_post = Post::where('id', $post->id)->get();
 
-        return view('post.edit', ['user_post' => $update_post]);
+        return view('post.update',['user_post' => $user_post]);
     }
 }

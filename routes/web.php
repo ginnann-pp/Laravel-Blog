@@ -47,8 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/post/edit', [PostController::class, 'edit'])
         ->name('post.edit');
     Route::get('/post/{post}/update', [PostController::class, 'show_update'])
-        ->name('post.update')
-        ->where('post', '[0-9]+');;
+        ->name('post.update');
     Route::delete('/post/{post}/destroy', [PostController::class, 'destroy'])
         ->name('post.destroy')
         ->where('post', '[0-9]+');
