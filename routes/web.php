@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
         ->name('post.edit');
     Route::get('/post/{post}/update', [PostController::class, 'show_update'])
         ->name('post.update');
+    Route::patch('/post/{post}/update_post', [PostController::class, 'update_post'])
+        ->name('post.update_post');
     Route::delete('/post/{post}/destroy', [PostController::class, 'destroy'])
         ->name('post.destroy')
         ->where('post', '[0-9]+');
